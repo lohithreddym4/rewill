@@ -1,0 +1,51 @@
+src/
+├── app/                             # Next.js Pages (Routing)
+│   ├── api/                           # API routes (Backend logic)
+│   │   ├── auth/                      # Authentication API routes
+│   │   │   ├── register.js            # User registration logic
+│   │   │   ├── login.js               # User login logic
+│   │   │   ├── logout.js              # User logout logic
+│   │   ├── items/                     # Item-related API routes
+│   │   │   ├── index.js               # Get all items & create new item
+│   │   │   ├── [id].js                # Update item or get specific item by ID
+│   │   ├── rentals/                   # Rental-related API routes
+│   │   │   ├── index.js               # Create rental or view all rentals
+│   │   │   ├── [id].js                # Return item or get rental status by ID
+│   │   ├── payments/                  # Payment-related API routes
+│   │   │   └── index.js               # Handle payment (initiate, status)
+│   ├── items/                         # Frontend routes for items
+│   │   ├── [id]/page.js               # Item details page (e.g., /items/123)
+│   │   ├── create/page.js             # Item creation page for listing new items
+│   │   └── browse/page.js             # Browse items page (all listings)
+│   ├── checkout/                      # Checkout flow
+│   │   └── page.js                    # Checkout page for renting items
+│   ├── account/                       # User account pages
+│   │   ├── profile/page.js            # User profile page
+│   │   └── rentals/page.js            # Page showing user’s rented items
+│   └── login/page.js                  # Login page
+├── lib/                               # Utility functions and helpers
+│   ├── db.js                          # MongoDB connection
+│   ├── auth.js                        # JWT authentication utilities
+│   └── api.js                         # API functions for fetching data from backend
+├── models/                            # Database models (MongoDB schema definitions)
+│   ├── item.js                        # Item schema/model
+│   ├── rental.js                      # Rental schema/model
+│   └── user.js                        # User schema/model
+├── services/                          # Business logic and service functions
+│   ├── itemService.js                 # Item-related logic (CRUD for items)
+│   ├── rentalService.js               # Rental process handling
+│   └── userService.js                 # User-specific logic
+├── components/                        # Reusable components (Frontend)
+│   ├── Navbar.js                      # Navbar component
+│   ├── Footer.js                      # Footer component
+│   └── UI/                            # Smaller UI components (buttons, inputs)
+│       └── Button.js                  # Example button component
+├── utils/                             # Utility functions (e.g., formatting helpers)
+│   ├── formatDate.js                  # Date formatting helper
+│   └── calculatePrice.js              # Price calculation helper
+├── middleware/                        # Custom middlewares (authentication, error handling)
+│   ├── authMiddleware.js              # Protect API routes
+│   ├── errorMiddleware.js             # Custom error handling
+├── .env.local                         # Environment variables (DB URI, JWT secret, etc.)
+├── package.json                       # NPM dependencies and scripts
+└── next.config.js                     # Next.js configuration

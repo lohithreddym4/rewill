@@ -1,0 +1,31 @@
+ExpressJs Architecture (optional)
+backend/
+├── config/
+│   ├── db.js            # Database connection
+│   ├── env.js           # Environment variables
+├── controllers/         # Request handlers for each module
+│   ├── authController.js
+│   ├── itemController.js
+│   ├── rentalController.js
+│   ├── paymentController.js
+├── middlewares/         # Middleware for request handling
+│   ├── authMiddleware.js
+│   ├── errorHandler.js
+├── models/              # Mongoose schemas and models
+│   ├── User.js
+│   ├── Item.js
+│   ├── Rental.js
+│   ├── Payment.js
+├── routes/              # Route definitions for each module
+│   ├── authRoutes.js
+│   ├── itemRoutes.js
+│   ├── rentalRoutes.js
+│   ├── paymentRoutes.js
+├── services/            # Services for core functionalities and external integrations
+│   ├── paymentService.js
+│   ├── notificationService.js
+├── utils/               # Utility functions
+│   ├── logger.js
+│   ├── errorFormatter.js
+├── app.js               # Express app setup
+└── server.js            # Server entry point
