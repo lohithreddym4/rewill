@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "../styles/ItemDetails.module.css";
 import Reviews from "./Reviews";
+import Image from "next/image";
 
 const ItemDetails = ({ item }) => {
   return (
     <div className={styles.container}>
       {/* Item Image */}
       <div className={styles.imageWrapper}>
-        <img src={item.image} alt={item.name} className={styles.itemImage} />
+        {/* <img src={item.image} alt={item.name} className={styles.itemImage} />
+         */}
+         <Image src={item.image} alt={item.name} className={styles.itemImage} />
       </div>
 
       {/* Item Info */}
