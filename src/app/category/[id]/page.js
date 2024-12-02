@@ -1,4 +1,5 @@
 import CategoryItems from "../../../components/CategoryItems";
+import image from "../../../images/electronics.jpeg";
 
 export default function CategoryPage({ params }) {
   const { id } = params;
@@ -8,7 +9,7 @@ const items = [
       id: 1,
       name: "Canon EOS 1500D Camera",
       category: "Electronics",
-      image: "/images/camera.jpg",
+      image,
       price: "$25/day",
       location: "New York",
       availability: "Available",
@@ -17,7 +18,7 @@ const items = [
       id: 2,
       name: "MacBook Pro 16-inch",
       category: "Electronics",
-      image: "/images/macbook.jpg",
+      image,
       price: "$50/day",
       location: "San Francisco",
       availability: "Unavailable",
@@ -26,7 +27,7 @@ const items = [
       id: 3,
       name: "Camping Tent",
       category: "Outdoors",
-      image: "/images/tent.jpg",
+      image,
       price: "$10/day",
       location: "Seattle",
       availability: "Available",

@@ -1,4 +1,5 @@
 import ItemDetails from "../../../components/ItemDetails";
+import image from "../../../images/electronics.jpeg"
 
 export default function ItemPage({ params }) {
   const { id } = params;
@@ -8,7 +9,7 @@ export default function ItemPage({ params }) {
     name: "Canon EOS 1500D Camera",
     category: "Electronics",
     description: "Capture stunning photos and videos with this easy-to-use DSLR camera, perfect for beginners and pros alike.",
-    image: "images/camera.jpg",
+    image,
     price: "$25/day",
     location: "New York",
     availability: "Available",

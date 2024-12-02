@@ -8,7 +8,9 @@ const ItemDetails = ({ item }) => {
     <div className={styles.container}>
       {/* Item Image */}
       <div className={styles.imageWrapper}>
-        <img src={item.image} alt={item.name} className={styles.itemImage} />
+        <div>
+        {console.log(item.image)}</div>
+        <img src={item.image.src} alt={item.name} className={styles.itemImage} />
         
          {/* <Image src={item.image} alt={item.name} className={styles.itemImage} width={500} height={500} /> */}
       </div>

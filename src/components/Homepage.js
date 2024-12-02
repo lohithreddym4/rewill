@@ -2,6 +2,7 @@ import React from "react";
 import ItemCard from "./ItemCard";
 import CategoryCard from "./CategoryCard";
 import styles from "../styles/HomePage.module.css";
+import image from "../images/electronics.jpeg";
 
 // Dummy data for items
 const items = [
@@ -9,7 +10,7 @@ const items = [
       id: 1,
       name: "Canon EOS 1500D Camera",
       category: "Electronics",
-      image: "/images/camera.jpg",
+      image,
       location: "New York",
       hot: true,
     },
@@ -17,7 +18,7 @@ const items = [
       id: 2,
       name: "MacBook Pro 16-inch",
       category: "Electronics",
-      image: "/images/macbook.jpg",
+      image,
       location: "San Francisco",
       hot: false,
     },
@@ -25,7 +26,7 @@ const items = [
       id: 3,
       name: "Camping Tent",
       category: "Outdoors",
-      image: "/images/tent.jpg",
+      image,
       location: "Seattle",
       hot: true,
     },
@@ -34,9 +35,9 @@ const items = [
   
   // Dummy data for categories
   const categories = [
-    { id: "electronics", name: "Electronics", image: "/images/electronics.jpg" },
-    { id: "furniture", name: "Furniture", image: "/images/furniture.jpg" },
-    { id: "outdoor", name: "Outdoors", image: "/images/outdoors.jpg" },
+    { id: "electronics", name: "Electronics", image },
+    { id: "furniture", name: "Furniture", image },
+    { id: "outdoor", name: "Outdoors", image },
 
     // More categories...
   ];
