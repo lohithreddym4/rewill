@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import styles from "../styles/ItemDetails.module.css";
 import Reviews from "./Reviews";
-import Image from "next/image";
 
 // Chat component
 const ChatComponent = () => {
