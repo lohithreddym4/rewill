@@ -138,9 +138,7 @@ const Navbar = () => {
             </ul>
           )}
 
-          <Link href="/items/create" className={styles.navLink}>
-            List an Item
-          </Link>
+
           <Link href="/account/rentals" className={styles.navLink}>
             My Rentals
           </Link>

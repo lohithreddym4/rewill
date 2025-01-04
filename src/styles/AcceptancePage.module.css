@@ -1,0 +1,107 @@
+/* AcceptancePage.module.css */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .productDetails {
+    margin-bottom: 30px;
+  }
+  
+  .productDetails h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .productDetails p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .images {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .productImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .conditions {
+    margin-top: 20px;
+  }
+  
+  .conditions h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .conditions label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .acceptButton,
+  .rejectButton {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .acceptButton {
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .acceptButton:hover {
+    background-color: #45a049;
+  }
+  
+  .rejectButton {
+    background-color: #f44336;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rejectButton:hover {
+    background-color: #e53935;
+  }
+  
+  .confirmationMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
