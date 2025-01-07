@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import styles from "../styles/ItemDetails.module.css";
+import CustomSlider from "./CustomSlider";
 import Reviews from "./Reviews";
+import NearbyItems from "./NearbyItems";
+import "react-multi-carousel/lib/styles.css";
 
-// Chat component
 const ChatComponent = () => {
   const [messages, setMessages] = useState([
     { sender: "Renter", message: "Hello, how can I assist you?" },
@@ -27,7 +29,6 @@ const ChatComponent = () => {
           </div>
         ))}
       </div>
-
       <div className={styles.inputContainer}>
         <input
           type="text"
@@ -44,26 +45,52 @@ const ChatComponent = () => {
   );
 };
 
-// Main ItemDetails Component
-const ItemDetails = ({ item }) => {
+const ItemDetails = ({ item, nearbyItems }) => {
   const [showChat, setShowChat] = useState(false);
   const toggleChat = () => setShowChat(!showChat);
 
+  const renderStars = (rating) => {
+    return Array(5)
+      .fill(null)
+      .map((_, i) => (
+        <span key={i} className={i < rating ? styles.filledStar : styles.emptyStar}>
+          ★
+        </span>
+      ));
+  };
+
+  const responsiveSettings = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 640 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 640, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <div className={styles.container}>
-      {/* Item Image */}
-      <div className={styles.imageWrapper}>
-        <div>{console.log(item.image)}</div>
-        <img src={item.image.src} alt={item.name} className={styles.itemImage} />
-      </div>
+      {/* Image Carousel */}
+      <CustomSlider images={item.images} />
 
-      {/* Item Info */}
+      {/* Item Details */}
       <div className={styles.details}>
         <h1 className={styles.itemName}>{item.name}</h1>
+        <div className={styles.rating}>{renderStars(item.rating)}</div>
         <p className={styles.category}>Category: {item.category}</p>
         <p className={styles.description}>{item.description}</p>
-        <p className={styles.price}>Price: ₹{item.price}</p>
-        <p className={styles.location}>📍 Location: {item.location}</p>
+        <p className={styles.price}> ₹{item.price}</p>
+        <p className={styles.location}>📍{item.location}</p>
         <p className={styles.availability}>
           {item.availability === "Available" ? "✅ Available" : "❌ Unavailable"}
         </p>
@@ -76,15 +103,15 @@ const ItemDetails = ({ item }) => {
       <Reviews reviews={item.reviews} />
 
       {/* Chat Button */}
-      <button
-        className={styles.chatButton}
-        onClick={toggleChat}
-      >
+      <button className={styles.chatButton} onClick={toggleChat}>
         {showChat ? "Close Chat" : "Chat with the Renter"}
       </button>
 
       {/* Chat Window */}
       {showChat && <ChatComponent />}
+
+      {/* Nearby Items */}
+      <NearbyItems nearbyItems={nearbyItems} />
     </div>
   );
 };

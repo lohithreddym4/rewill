@@ -1,98 +1,113 @@
+/* Item Details Section */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-  }
-  
-  .imageWrapper {
-    flex: 1 1 300px;
-    max-width: 400px;
-  }
-  
-  .itemImage {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-  
-  .details {
-    flex: 1 1 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .itemName {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .category, .price, .location, .availability {
-    font-size: 1.1rem;
-    color: #555;
-  }
-  
-  .description {
-    margin-top: 10px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-  }
-  
-  .rentButton {
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .rentButton:hover {
-    background-color: #005bb5;
-  }
-  
-  /* Reviews Section */
-  .reviews {
-    margin-top: 40px;
-  }
-  
-  .reviewTitle {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .review {
-    margin-bottom: 15px;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .user {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .rating {
-    color: #ffb400;
-    margin-bottom: 5px;
-  }
-  
-  .comment {
-    color: #555;
-    font-size: 0.9rem;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.imageWrapper {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.itemImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.details {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.itemName {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* Semi-Bold */
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.category,
+.price,
+.location,
+.availability {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  margin-top: 10px;
+}
+
+.rentButton {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 1.1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rentButton:hover {
+  background-color: #005bb5;
+}
+
+/* Reviews Section */
+.reviews {
+  margin-top: 40px;
+}
+
+.reviewTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* Semi-Bold */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.review {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Regular */
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.rating {
+  color: #ffb400;
+  margin-bottom: 5px;
+}
+
+.comment {
+  color: #555;
+  font-size: 0.9rem;
+}
 
 /* Chat Button */
 .chatButton {
@@ -100,12 +115,13 @@
   bottom: 20px;
   right: 20px;
   padding: 12px 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* Semi-Bold */
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50px;
   font-size: 16px;
-  font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -158,14 +174,16 @@
 }
 
 .message {
-  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
+  margin-bottom: 15px;
 }
 
 .message strong {
   color: #007bff;
-  font-weight: 600;
+  font-weight: 600; /* Bold */
 }
 
 /* Input and Send Button */
@@ -178,6 +196,8 @@
 
 .input {
   flex: 1;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Regular */
   padding: 10px 15px;
   border: 1px solid #ddd;
   border-radius: 25px;
@@ -191,13 +211,14 @@
 }
 
 .sendButton {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Medium */
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 25px;
   font-size: 14px;
-  font-weight: bold;
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -219,4 +240,25 @@
     width: 280px;
     height: 400px;
   }
+}
+
+/* Button for showing more reviews */
+.showMoreButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.showMoreButton:hover {
+  background-color: #005bb5;
+}
+
+.showMoreButton:active {
+  background-color: #003d7a;
 }

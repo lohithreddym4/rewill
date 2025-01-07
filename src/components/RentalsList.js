@@ -1,12 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter hook for client-side navigation
 import ChatComponent from "./RentalChatComp"; // Import the ChatComponent
 import styles from "../styles/RentalsPage.module.css"; // CSS for RentalsPage
 
 const RentalsPage = () => {
   const [activeChatRenter, setActiveChatRenter] = useState(null); // State to manage active chats
   const [confirmReturn, setConfirmReturn] = useState(null); // State to manage return confirmations
+  const [isClient, setIsClient] = useState(false); // State to track if the component is rendered on the client
+
+  const router = useRouter(); // Initialize the router
+
+  useEffect(() => {
+    // Set isClient to true when the component is mounted on the client
+    setIsClient(true);
+  }, []);
 
   const rentedItems = [
     {
@@ -53,8 +62,11 @@ const RentalsPage = () => {
   };
 
   const confirmReturnRequest = () => {
-    alert(`Return request for ${confirmReturn.name} submitted!`);
     setConfirmReturn(null); // Close confirmation dialog
+    // Redirect to review page after confirming return
+    if (isClient) {
+      router.push(`/review/${confirmReturn.id}`);
+    }
   };
 
   return (

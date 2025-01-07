@@ -1,0 +1,41 @@
+.nearbyContainer {
+    margin-top: 40px;
+  }
+  
+  .nearbyItemsList {
+    margin-bottom: 20px;
+  }
+  
+  .nearbyItemsGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .nearbyItem {
+    width: calc(33.333% - 20px);
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nearbyItemImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .nearbyItemName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .nearbyItemPrice {
+    color: #555;
+    margin-top: 5px;
+  }
+  

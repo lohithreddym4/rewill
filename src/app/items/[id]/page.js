@@ -4,28 +4,98 @@ import image from "../../../images/electronics.jpeg"
 export default function ItemPage({ params }) {
   const { id } = params;
 
-  const dummyItem = {
+  const item = {
     id: 1,
     name: "Canon EOS 1500D Camera",
-    category: "Electronics",
-    description: "Capture stunning photos and videos with this easy-to-use DSLR camera, perfect for beginners and pros alike.",
-    image,
-    price: "$25/day",
-    location: "New York",
+    category: "Photography",
+    description: "A high-quality DSLR camera for capturing stunning photographs and videos.",
+    price: 1200,
+    location: "Mumbai, India",
     availability: "Available",
+    rating: 4, // Rating out of 5
+    images: [
+      "https://via.placeholder.com/400x300?text=Camera+Front",
+      "https://via.placeholder.com/400x300?text=Camera+Back",
+      "https://via.placeholder.com/400x300?text=Camera+Side",
+    ],
     reviews: [
-      { id: 1, user: "Alice", rating: 4, comment: "Great camera, very user-friendly." },
-      { id: 2, user: "Bob", rating: 5, comment: "The image quality was amazing!" },
+      {
+        user: "John Doe",
+        rating: 5,
+        comment: "Excellent camera! The picture quality is amazing.",
+      },
+      {
+        user: "Jane Smith",
+        rating: 4,
+        comment: "Good value for money. Easy to use.",
+      },
+      {
+        user: "John Doe",
+        rating: 5,
+        comment: "Excellent camera! The picture quality is amazing.",
+      },
+      {
+        user: "Jane Smith",
+        rating: 4,
+        comment: "Good value for money. Easy to use.",
+      },
     ],
   };
   
-
-  // Fetch item details using the id (For now, use dummy data)
-  const item = dummyItem; // Replace with real fetch logic later
+  const nearbyItems = [
+    {
+      id: 2,
+      name: "GoPro Hero 9",
+      price: 900,
+      image: "https://via.placeholder.com/200x150?text=GoPro+Hero+9",
+    },
+    {
+      id: 3,
+      name: "Nikon D3500",
+      price: 1500,
+      image: "https://via.placeholder.com/200x150?text=Nikon+D3500",
+    },
+    {
+      id: 4,
+      name: "Sony Alpha 7",
+      price: 2500,
+      image: "https://via.placeholder.com/200x150?text=Sony+Alpha+7",
+    },
+    {
+      id: 5,
+      name: "DJI Mavic Air 2 Drone",
+      price: 3000,
+      image: "https://via.placeholder.com/200x150?text=DJI+Mavic+Air+2+Drone",
+    },
+    {
+      id: 2,
+      name: "GoPro Hero 9",
+      price: 900,
+      image: "https://via.placeholder.com/200x150?text=GoPro+Hero+9",
+    },
+    {
+      id: 3,
+      name: "Nikon D3500",
+      price: 1500,
+      image: "https://via.placeholder.com/200x150?text=Nikon+D3500",
+    },
+    {
+      id: 4,
+      name: "Sony Alpha 7",
+      price: 2500,
+      image: "https://via.placeholder.com/200x150?text=Sony+Alpha+7",
+    },
+    {
+      id: 5,
+      name: "DJI Mavic Air 2 Drone",
+      price: 3000,
+      image: "https://via.placeholder.com/200x150?text=DJI+Mavic+Air+2+Drone",
+    },
+  ];
 
   return (
     <div>
-      <ItemDetails item={item} />
+      <ItemDetails item={item} nearbyItems={nearbyItems} />
     </div>
   );
 }
