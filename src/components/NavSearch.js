@@ -1,11 +1,22 @@
 "use client";
-import React from "react";
+
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import styles from "../styles/SearchPage.module.css";
+
+const SearchPageWrapper = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <SearchPage />
+    </Suspense>
+  );
+};
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
+
   const items = [
     {
       id: 1,
@@ -15,6 +26,7 @@ const SearchPage = () => {
       price: "$25/day",
       location: "New York",
       availability: "Available",
+      description: "A high-quality DSLR camera for photography enthusiasts.",
     },
     {
       id: 2,
@@ -24,6 +36,7 @@ const SearchPage = () => {
       price: "$50/day",
       location: "San Francisco",
       availability: "Unavailable",
+      description: "Powerful MacBook for work and creative projects.",
     },
     {
       id: 3,
@@ -33,8 +46,10 @@ const SearchPage = () => {
       price: "$10/day",
       location: "Seattle",
       availability: "Available",
+      description: "Spacious camping tent for outdoor adventures.",
     },
   ];
+
   const results = items.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -49,9 +64,9 @@ const SearchPage = () => {
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               <p>Price: {item.price}</p>
-              <a href={`/items/${item.id}`} className={styles.viewLink}>
+              <Link href={`/items/${item.id}`} className={styles.viewLink}>
                 View Item
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -62,4 +77,6 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+const Loading = () => <p>Loading search results...</p>;
+
+export default SearchPageWrapper;
