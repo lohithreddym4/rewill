@@ -1,11 +1,11 @@
-"use client"
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 const RegisterPage = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const router = useRouter();
@@ -14,25 +14,31 @@ const RegisterPage = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/auth/register', {
-                method: 'POST',
+            const response = await fetch("/api/auth/register", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ name, email, password }),
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                setError(errorData.message || 'Registration failed. Please try again.');
+                setError(errorData.message || "Registration failed. Please try again.");
                 return;
             }
 
-            setSuccess('Registration successful! Redirecting to login...');
-            setTimeout(() => router.push('/login'), 2000);
+            setSuccess("Registration successful! Redirecting to login...");
+            setTimeout(() => router.push("/login"), 2000);
         } catch (err) {
-            setError('An error occurred. Please try again later.');
+            setError("An error occurred. Please try again later.");
         }
+    };
+
+    const handleGoogleLogin = () => {
+        // Replace this with the actual Google login logic
+        console.log("Google login triggered");
+        router.push("/api/auth/google");
     };
 
     return (
@@ -45,7 +51,9 @@ const RegisterPage = () => {
 
                 <form onSubmit={handleRegister} className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium">Name</label>
+                        <label htmlFor="name" className="block text-sm font-medium">
+                            Name
+                        </label>
                         <input
                             type="text"
                             id="name"
@@ -56,7 +64,9 @@ const RegisterPage = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium">
+                            Email
+                        </label>
                         <input
                             type="email"
                             id="email"
@@ -67,7 +77,9 @@ const RegisterPage = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium">
+                            Password
+                        </label>
                         <input
                             type="password"
                             id="password"
@@ -85,9 +97,28 @@ const RegisterPage = () => {
                     </button>
                 </form>
 
+                <div className="flex items-center justify-center mt-4">
+                    <button
+                        onClick={handleGoogleLogin}
+                        className="flex items-center justify-center w-full px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                    >
+                        <Image
+                            src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png"
+                            alt="Google Logo"
+                            width={20}
+                            height={20}
+                            className="w-5 h-5 mr-2"
+
+                        />
+                        Continue with Google
+                    </button>
+                </div>
+
                 <p className="text-sm text-center text-gray-600">
-                    Already have an account?
-                    <a href="/login" className="text-blue-500 hover:underline">Login</a>
+                    Already have an account?{" "}
+                    <a href="/login" className="text-blue-500 hover:underline">
+                        Login
+                    </a>
                 </p>
             </div>
         </div>

@@ -1,6 +1,7 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -35,6 +36,11 @@ const LoginPage = () => {
         } catch (err) {
             setError('An error occurred. Please try again later.');
         }
+    };
+
+    const handleGoogleLogin = () => {
+        // Add logic for Google login (e.g., OAuth integration)
+        console.log('Google login clicked');
     };
 
     return (
@@ -74,6 +80,22 @@ const LoginPage = () => {
                         Login
                     </button>
                 </form>
+
+                <div className="flex items-center justify-center mt-4">
+                    <button
+                        onClick={handleGoogleLogin}
+                        className="flex items-center justify-center w-full px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                    >
+                        <Image
+                            src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png"
+                            alt="Google Logo"
+                            className="w-5 h-5 mr-2"
+                            width={20}
+                            height={20}
+                        />
+                        Continue with Google
+                    </button>
+                </div>
 
                 <p className="text-sm text-center text-gray-600">
                     Don't have an account?

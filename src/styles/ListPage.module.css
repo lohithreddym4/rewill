@@ -260,3 +260,32 @@
   max-height: 80%;
   border-radius: 10px;
 }
+.dragArea {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: border-color 0.3s;
+}
+
+.dragging {
+  border-color: #6a5acd;
+}
+
+.inputHidden {
+  display: none;
+}
+
+.mapContainer {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.address {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter hook for client-side navigation
 import ChatComponent from "./RentalChatComp"; // Import the ChatComponent
 import styles from "../styles/RentalsPage.module.css"; // CSS for RentalsPage
+import Image from "next/image";
 
 const RentalsPage = () => {
   const [activeChatRenter, setActiveChatRenter] = useState(null); // State to manage active chats
@@ -76,9 +77,11 @@ const RentalsPage = () => {
       <ul className={styles.list}>
         {rentedItems.map((item) => (
           <li key={item.id} className={styles.item}>
-            <img
+            <Image
               src={item.thumbnail}
               alt={item.name}
+              width={150}
+              height={150}
               className={styles.thumbnail}
             />
             <div className={styles.itemDetails}>

@@ -142,6 +142,9 @@ const Navbar = () => {
           <Link href="/account/rentals" className={styles.navLink}>
             My Rentals
           </Link>
+          <Link href="/renter-dashboard" className={styles.navLink}>
+            Dashboard
+          </Link>
           <Link href="/account/profile" className={styles.navLink}>
             Profile
           </Link>

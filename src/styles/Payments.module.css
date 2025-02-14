@@ -1,0 +1,118 @@
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.searchInput {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.filterSelect,
+.sortSelect {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.tableContainer {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.table td {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.row:hover {
+    background-color: #f9f9f9;
+}
+
+.orderId {
+    color: #333;
+    font-weight: bold;
+}
+
+.itemName {
+    font-weight: 500;
+}
+
+.amount {
+    color: #2a7a37;
+}
+
+.status {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.status.completed {
+    background-color: #d4f4dd;
+    color: #2a7a37;
+}
+
+.status.cancelled {
+    background-color: #f8d4d4;
+    color: #a72a2a;
+}
+
+.status.returned {
+    background-color: #ffe4b3;
+    color: #a6782a;
+}
+
+.status.pending {
+    background-color: #e0e4f4;
+    color: #2a3a7a;
+}
+
+.date {
+    color: #888;
+}
+
+.noOrders {
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    color: #777;
+}

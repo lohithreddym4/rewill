@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/CustomSlider.module.css";
+import Image from "next/image";
 
 const CustomSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,10 +23,12 @@ const CustomSlider = ({ images }) => {
         &#8249;
       </button>
       <div className={styles.slide}>
-        <img
+        <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
           className={styles.sliderImage}
+          width={400}
+          height={300}
         />
       </div>
       <button className={styles.nextButton} onClick={nextSlide}>

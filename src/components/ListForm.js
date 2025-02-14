@@ -9,12 +9,17 @@ const ListForm = () => {
     description: "",
     category: "",
     price: "",
-    pricingOption: "perDay", // Default to 'perDay'
-    location: "",
+    pricingOption: "perDay",
+    street: "",
+    city: "",
+    state: "",
+    pincode: "",
     images: [],
-    thumbnail: null, // To store the selected thumbnail
+    thumbnail: null,
   });
   const [previewImage, setPreviewImage] = useState(null);
+  const [dragging, setDragging] = useState(false);
+  const [agreed, setAgreed] = useState(false); // For user consent
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,12 +29,33 @@ const ListForm = () => {
     }));
   };
 
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
+  const handleConsentChange = (e) => {
+    setAgreed(e.target.checked);
+  };
+
+  const handleImageUpload = (files) => {
     setFormData((prev) => ({
       ...prev,
       images: [...prev.images, ...files],
     }));
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragLeave = () => {
+    setDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setDragging(false);
+    const files = Array.from(e.dataTransfer.files).filter((file) =>
+      file.type.startsWith("image/")
+    );
+    handleImageUpload(files);
   };
 
   const handleImageClick = (image) => {
@@ -45,8 +71,12 @@ const ListForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!agreed) {
+      alert("You must agree to the terms before listing the item.");
+      return;
+    }
     console.log("Item listed:", formData);
-    alert("Item successfully listed with thumbnail!");
+    alert("Item successfully listed with thumbnail and location!");
   };
 
   return (
@@ -104,15 +134,15 @@ const ListForm = () => {
         {/* Rental Price */}
         <div className={styles.formGroup}>
           <label className={styles.label} htmlFor="price">Rental Price (₹):</label>
-          <input
+            <input
             type="number"
             id="price"
             name="price"
             value={formData.price}
             onChange={handleChange}
             className={styles.input}
-            required
-          />
+              required
+            />
         </div>
 
         {/* Pricing Options */}
@@ -151,56 +181,79 @@ const ListForm = () => {
                 className={styles.radioInput}
               />
               Per Month
-            </label>
+          </label>
           </div>
         </div>
 
-        {/* Image Upload */}
+        {/* Street Input */}
         <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor="images">Upload Images:</label>
+          <label className={styles.label} htmlFor="street">Street:</label>
           <input
-            type="file"
-            id="images"
-            name="images"
-            accept="image/*"
-            multiple
-            onChange={handleImageUpload}
+            type="text"
+            id="street"
+            name="street"
+            value={formData.street}
+            onChange={handleChange}
             className={styles.input}
+            required
           />
         </div>
 
-        {/* Image Thumbnails */}
-        <div className={styles.imagePreview}>
-          {formData.images.map((image, index) => (
-            <div key={index} className={styles.imageContainer}>
-              <img
-                src={URL.createObjectURL(image)}
-                alt={`Preview ${index + 1}`}
-                className={styles.previewImage}
-                onClick={() => handleImageClick(image)}
-              />
-              <button
-                type="button"
-                className={`${styles.thumbnailButton} ${
-                  formData.thumbnail === image ? styles.selectedThumbnail : ""
-                }`}
-                onClick={() => handleThumbnailSelect(image)}
-              >
-                {formData.thumbnail === image ? "Selected" : "Set as Thumbnail"}
-              </button>
-            </div>
-          ))}
+        {/* City Input */}
+        <div className={styles.formGroup}>
+          <label className={styles.label} htmlFor="city">City:</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            className={styles.input}
+            required
+          />
         </div>
 
-        {/* Enlarged Image Preview */}
-        {previewImage && (
-          <div className={styles.previewOverlay} onClick={() => setPreviewImage(null)}>
-            <img src={previewImage} alt="Preview" className={styles.previewLarge} />
-          </div>
-        )}
+        {/* State Input */}
+        <div className={styles.formGroup}>
+          <label className={styles.label} htmlFor="state">State:</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            className={styles.input}
+            required
+          />
+        </div>
+
+        {/* Pincode Input */}
+        <div className={styles.formGroup}>
+          <label className={styles.label} htmlFor="pincode">Pincode:</label>
+          <input
+            type="text"
+            id="pincode"
+            name="pincode"
+            value={formData.pincode}
+            onChange={handleChange}
+            className={styles.input}
+            required
+          />
+        </div>
+        {/*User Consent*/}
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            <input
+              type="checkbox"
+              onChange={handleConsentChange}
+              className={styles.checkbox}
+            />
+            I confirm that the product details are true and authentic, and the images are the latest ones of the product.
+          </label>
+        </div>
 
         {/* Submit Button */}
-        <button type="submit" className={styles.submitButton}>
+        <button type="submit" className={styles.submitButton} disabled={!agreed}>
           List Item
         </button>
       </form>

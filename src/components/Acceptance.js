@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "../styles/AcceptancePage.module.css"; // Adjust this based on your styling
+import Image from "next/image";
 
 const AcceptancePage = () => {
   const [accepted, setAccepted] = useState(false);
@@ -56,8 +57,10 @@ const AcceptancePage = () => {
 
         <div className={styles.images}>
           {product.images.map((image, index) => (
-            <img
+            <Image
               key={index}
+              width={200}
+              height={200}
               src={image}
               alt={`Product Image ${index + 1}`}
               className={styles.productImage}

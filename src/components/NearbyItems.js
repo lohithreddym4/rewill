@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/NearbyItems.module.css"; // You can style the component as needed
 import CustomSlider from "./CustomSlider"; // If you want to use the custom slider
+import Image from "next/image";
 
 const NearbyItems = ({ nearbyItems }) => {
   return (
@@ -10,8 +11,10 @@ const NearbyItems = ({ nearbyItems }) => {
         <div className={styles.nearbyItemsGrid}>
           {nearbyItems.map((nearbyItem) => (
             <div key={nearbyItem.id} className={styles.nearbyItem}>
-              <img
+              <Image
                 src={nearbyItem.image}
+                width={200}
+                height={200}
                 alt={nearbyItem.name}
                 className={styles.nearbyItemImage}
               />

@@ -1,5 +1,4 @@
 import ItemDetails from "../../../components/ItemDetails";
-import image from "../../../images/electronics.jpeg"
 
 export default function ItemPage({ params }) {
   const { id } = params;

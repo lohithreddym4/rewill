@@ -1,0 +1,114 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .profileSection {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .profilePicture {
+    text-align: center;
+  }
+  
+  .profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .uploadLabel {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .detailsSection {
+    flex-grow: 1;
+  }
+  
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .value {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .buttonGroup {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .editButton,
+  .saveButton,
+  .cancelButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .editButton {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .saveButton {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .cancelButton {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .editButton:hover,
+  .saveButton:hover,
+  .cancelButton:hover {
+    opacity: 0.9;
+  }
+  
