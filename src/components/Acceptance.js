@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation"; // Correct way to get URL params in Next.js
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation"; // Next.js navigation hook
 import styles from "../styles/AcceptancePage.module.css";
 import Image from "next/image";
 
-const AcceptancePage = () => {
+const AcceptanceComponent = () => {
   const searchParams = useSearchParams();
   const productId = searchParams.get("productId"); // Get productId from query params
 
@@ -17,13 +17,10 @@ const AcceptancePage = () => {
     if (productId) {
       const dummyResponse = {
         name: "Electric Bike",
-        description: "A high-quality electric bike for daily commutes. It's comfortable, eco-friendly, and perfect for both city and suburban rides.",
+        description:
+          "A high-quality electric bike for daily commutes. It's comfortable, eco-friendly, and perfect for both city and suburban rides.",
         price: 500,
-        images: [
-          "/images/bike1.jpg",
-          "/images/bike2.jpg",
-          "/images/bike3.jpg"
-        ]
+        images: ["/images/bike1.jpg", "/images/bike2.jpg", "/images/bike3.jpg"],
       };
       setProduct(dummyResponse);
     }
@@ -53,7 +50,9 @@ const AcceptancePage = () => {
       <div className={styles.productDetails}>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
-        <p><strong>Price: ₹{product.price} per day</strong></p>
+        <p>
+          <strong>Price: ₹{product.price} per day</strong>
+        </p>
 
         <div className={styles.images}>
           {product.images.map((image, index) => (
@@ -95,8 +94,21 @@ const AcceptancePage = () => {
         </button>
       </div>
 
-      {accepted && <p className={styles.confirmationMessage}>You have accepted the product!</p>}
+      {accepted && (
+        <p className={styles.confirmationMessage}>
+          You have accepted the product!
+        </p>
+      )}
     </div>
+  );
+};
+
+// Wrap component in Suspense for proper handling
+const AcceptancePage = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <AcceptanceComponent />
+    </Suspense>
   );
 };
 
